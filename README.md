@@ -23,3 +23,11 @@ Creates a random bool
 ## toRandomCase(string: string): string
 
 Returns the passed string in random case
+
+## generateRandomStringWithPrefix(prefix: string)
+
+Creates a random string with the passed prefix
+
+## generateRandomStringWithPrefix(prefix: string, randStringSize: number = 10)
+
+Creates a random string with the passed size and the passed prefix

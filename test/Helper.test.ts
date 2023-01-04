@@ -2,6 +2,7 @@ import {
   generateRandomBool,
   generateRandomInt,
   generateRandomString,
+  generateRandomStringWithPrefix,
   toRandomCase,
 } from "../src/Helper";
 
@@ -64,5 +65,26 @@ describe("toRandomCase", () => {
     const toCompare = toRandomCase(string);
 
     expect(result).not.toEqual(toCompare);
+  });
+});
+
+describe("generateRandomStringWithPrefix", () => {
+  test("adds prefix to random string", () => {
+    const prefix = generateRandomString();
+    const result = generateRandomStringWithPrefix(prefix);
+    const guidResult = result.substring(prefix.length);
+
+    expect(result).toMatch(new RegExp("^" + prefix + ".*?$"));
+    expect(guidResult.length).toBe(10);
+  });
+
+  test("add prefix to random string with 3 chars", () => {
+    const randCharCount = 3;
+    const prefix = generateRandomString(5);
+    const result = generateRandomStringWithPrefix(prefix, randCharCount);
+    const guidResult = result.substring(prefix.length);
+
+    expect(result).toMatch(new RegExp("^" + prefix + ".*?$"));
+    expect(guidResult.length).toBe(randCharCount);
   });
 });

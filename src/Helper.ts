@@ -13,5 +13,10 @@ export const generateRandomBool = (): boolean => Math.random() < 0.5;
 export const toRandomCase = (string: string): string =>
   string.split("").map(toRandomChar).join("");
 
+export const generateRandomStringWithPrefix = (
+  prefix: string,
+  randStringSize: number = 10
+) => prefix + generateRandomString(randStringSize);
+
 const toRandomChar = (char: string) =>
   Math.round(Math.random()) ? char.toUpperCase() : char.toLocaleLowerCase();
