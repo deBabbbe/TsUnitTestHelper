@@ -7,3 +7,5 @@ export const GenerateRandomString = (count: number = 10): string => {
     .map((_) => chars.charAt(Math.floor(Math.random() * chars.length)))
     .join("");
 };
+
+export const GenerateRandomBool = (): boolean => Math.random() < 0.5;

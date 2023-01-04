@@ -1,4 +1,8 @@
-import { GenerateRandomInt, GenerateRandomString } from "../src/Helper";
+import {
+  GenerateRandomBool,
+  GenerateRandomInt,
+  GenerateRandomString,
+} from "../src/Helper";
 
 describe("GenerateRandomInt tests", () => {
   test("between 1 and 10", () => {
@@ -23,21 +27,31 @@ describe("GenerateRandomInt tests", () => {
 });
 
 describe("GenerateRandomString", () => {
-  test("10 chars by default", () => {
+  test("returns 10 chars by default", () => {
     const result = GenerateRandomString();
 
     expect(result).toMatch(/^[A-z]{10}$/);
   });
 
-  test("1 char", () => {
+  test("returns 1 char as passed", () => {
     const result = GenerateRandomString(1);
 
     expect(result).toMatch(/^[A-z]{1}$/);
   });
 
-  test("1000 chars", () => {
+  test("returns 1000 chars as passed", () => {
     const result = GenerateRandomString(1000);
 
     expect(result).toMatch(/^[A-z]{1000}$/);
+  });
+});
+
+describe("GenerateRandomBool", () => {
+  test("returns random bool", () => {
+    const result = GenerateRandomBool();
+    let toCompare = GenerateRandomBool();
+    while (toCompare === result) toCompare = GenerateRandomBool();
+
+    expect(result).not.toEqual(toCompare);
   });
 });

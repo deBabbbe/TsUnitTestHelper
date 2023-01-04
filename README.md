@@ -15,3 +15,7 @@ Creates a random string with 10 chars
 ## GenerateRandomString(count: number): string
 
 Creates a random string wtih n chars
+
+## GenerateRandomBool(): boolean
+
+Creates a random bool
