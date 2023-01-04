@@ -1,6 +1,7 @@
 import {
   generateRandomBool,
   generateRandomInt,
+  generateRandomList,
   generateRandomString,
   generateRandomStringWithPrefix,
   toRandomCase,
@@ -86,5 +87,23 @@ describe("generateRandomStringWithPrefix", () => {
 
     expect(result).toMatch(new RegExp("^" + prefix + ".*?$"));
     expect(guidResult.length).toBe(randCharCount);
+  });
+});
+
+describe("generateRandomList", () => {
+  test("creates list with 10 elements", () => {
+    const generator = () => "a";
+    const result = generateRandomList(generator);
+    const expected = "aaaaaaaaaa".split("");
+
+    expect(result).toEqual(expected);
+  });
+
+  test("creates list with 3 elements", () => {
+    const generator = () => "abc";
+    const result = generateRandomList(generator, 3);
+    const expected = "abc,abc,abc".split(",");
+
+    expect(result).toEqual(expected);
   });
 });

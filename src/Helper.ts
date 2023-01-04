@@ -18,5 +18,12 @@ export const generateRandomStringWithPrefix = (
   randStringSize: number = 10
 ) => prefix + generateRandomString(randStringSize);
 
+export function generateRandomList<Type>(
+  generator: () => Type,
+  count: number = 10
+): Type[] {
+  return Array.from(Array(count)).map(generator);
+}
+
 const toRandomChar = (char: string) =>
   Math.round(Math.random()) ? char.toUpperCase() : char.toLocaleLowerCase();
