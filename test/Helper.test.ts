@@ -34,4 +34,10 @@ describe("GenerateRandomString", () => {
 
     expect(result).toMatch(/^[A-z]{1}$/);
   });
+
+  test("1000 chars", () => {
+    const result = GenerateRandomString(1000);
+
+    expect(result).toMatch(/^[A-z]{1000}$/);
+  });
 });
