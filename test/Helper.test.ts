@@ -2,6 +2,7 @@ import {
   GenerateRandomBool,
   GenerateRandomInt,
   GenerateRandomString,
+  toRandomCase,
 } from "../src/Helper";
 
 describe("GenerateRandomInt tests", () => {
@@ -51,6 +52,16 @@ describe("GenerateRandomBool", () => {
     const result = GenerateRandomBool();
     let toCompare = GenerateRandomBool();
     while (toCompare === result) toCompare = GenerateRandomBool();
+
+    expect(result).not.toEqual(toCompare);
+  });
+});
+
+describe("toRandomCase", () => {
+  test("returns different cases", () => {
+    const string = GenerateRandomString(100);
+    const result = toRandomCase(string);
+    const toCompare = toRandomCase(string);
 
     expect(result).not.toEqual(toCompare);
   });

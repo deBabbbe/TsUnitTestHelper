@@ -9,3 +9,10 @@ export const GenerateRandomString = (count: number = 10): string => {
 };
 
 export const GenerateRandomBool = (): boolean => Math.random() < 0.5;
+
+export const toRandomCase = (string: string): string => {
+  const toRandomChar = (char: string) =>
+    Math.round(Math.random()) ? char.toUpperCase() : char.toLocaleLowerCase();
+
+  return string.split("").map(toRandomChar).join("");
+};

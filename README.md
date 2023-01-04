@@ -19,3 +19,7 @@ Creates a random string wtih n chars
 ## GenerateRandomBool(): boolean
 
 Creates a random bool
+
+## toRandomCase(string: string): string
+
+Returns the passed string in random case
