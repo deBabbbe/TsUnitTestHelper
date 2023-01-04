@@ -1,3 +1,5 @@
+import { GenerateRandomInt } from "../src/Helper";
+
 describe("GenerateRandomInt tests", () => {
   test("between 1 and 10", () => {
     const result = GenerateRandomInt();
