@@ -63,8 +63,7 @@ describe("toRandomCase", () => {
   test("returns different cases", () => {
     const string = generateRandomString(100);
     const result = toRandomCase(string);
-    const toCompare = toRandomCase(string);
-
+    const toCompare = string.toRandomCase();
     expect(result).not.toEqual(toCompare);
   });
 });
@@ -94,7 +93,7 @@ describe("generateRandomList", () => {
   test("creates list with 10 elements", () => {
     const generator = () => "a";
     const result = generateRandomList(generator);
-    const expected = "aaaaaaaaaa".split("");
+    const expected = [..."aaaaaaaaaa"];
 
     expect(result).toEqual(expected);
   });
@@ -103,6 +102,14 @@ describe("generateRandomList", () => {
     const generator = () => "abc";
     const result = generateRandomList(generator, 3);
     const expected = "abc,abc,abc".split(",");
+
+    expect(result).toEqual(expected);
+  });
+
+  test("creates list with 3 elements of different type", () => {
+    const generator = () => 1;
+    const result = generateRandomList(generator, 3);
+    const expected = [1, 1, 1];
 
     expect(result).toEqual(expected);
   });

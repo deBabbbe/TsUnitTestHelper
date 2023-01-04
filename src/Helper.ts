@@ -27,3 +27,11 @@ const toRandomChar = (char: string) =>
   Math.round(Math.random()) ? char.toUpperCase() : char.toLocaleLowerCase();
 
 const createArrayWithPassedSize = (size: number) => Array.from(Array(size));
+
+declare global {
+  interface String {
+    toRandomCase(): string;
+  }
+}
+
+String.prototype.toRandomCase = () => toRandomCase(String(this));
