@@ -16,17 +16,18 @@ export const toRandomCase = (string: string): string =>
 export const generateRandomStringWithPrefix = (
   prefix: string,
   randStringSize: number = 10
-) => prefix + generateRandomString(randStringSize);
+): string => prefix + generateRandomString(randStringSize);
 
 export const generateRandomList = <Type>(
   generator: () => Type,
   size: number = 10
 ): Type[] => createArrayWithPassedSize(size).map(generator);
 
-const toRandomChar = (char: string) =>
+const toRandomChar = (char: string): string =>
   Math.round(random()) ? char.toUpperCase() : char.toLowerCase();
 
-const createArrayWithPassedSize = (size: number) => Array.from(Array(size));
+const createArrayWithPassedSize = (size: number): any[] =>
+  Array.from(Array(size));
 
 const random = Math.random;
 
