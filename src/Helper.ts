@@ -24,7 +24,7 @@ export const generateRandomList = <Type>(
 ): Type[] => createArrayWithPassedSize(size).map(generator);
 
 const toRandomChar = (char: string) =>
-  Math.round(random()) ? char.toUpperCase() : char.toLocaleLowerCase();
+  Math.round(random()) ? char.toUpperCase() : char.toLowerCase();
 
 const createArrayWithPassedSize = (size: number) => Array.from(Array(size));
 
