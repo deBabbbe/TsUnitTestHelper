@@ -80,13 +80,13 @@ describe("generateRandomStringWithPrefix", () => {
   });
 
   test("add prefix to random string with 3 chars", () => {
-    const randCharCount = 3;
+    const randCharSize = 3;
     const prefix = generateRandomString(5);
-    const result = generateRandomStringWithPrefix(prefix, randCharCount);
+    const result = generateRandomStringWithPrefix(prefix, randCharSize);
     const guidResult = result.substring(prefix.length);
 
     expect(result).toMatch(new RegExp("^" + prefix + ".*?$"));
-    expect(guidResult.length).toBe(randCharCount);
+    expect(guidResult.length).toBe(randCharSize);
   });
 });
 

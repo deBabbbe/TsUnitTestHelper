@@ -1,9 +1,9 @@
 export const generateRandomInt = (min = 1, max = 10): number =>
   Math.random() * (max - min) + min;
 
-export const generateRandomString = (count: number = 10): string => {
+export const generateRandomString = (size: number = 10): string => {
   const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-  return Array.from(Array(count))
+  return createArrayWithPassedSize(size)
     .map((_) => chars.charAt(Math.floor(Math.random() * chars.length)))
     .join("");
 };
@@ -18,12 +18,12 @@ export const generateRandomStringWithPrefix = (
   randStringSize: number = 10
 ) => prefix + generateRandomString(randStringSize);
 
-export function generateRandomList<Type>(
+export const generateRandomList = <Type>(
   generator: () => Type,
-  count: number = 10
-): Type[] {
-  return Array.from(Array(count)).map(generator);
-}
+  size: number = 10
+): Type[] => createArrayWithPassedSize(size).map(generator);
 
 const toRandomChar = (char: string) =>
   Math.round(Math.random()) ? char.toUpperCase() : char.toLocaleLowerCase();
+
+const createArrayWithPassedSize = (size: number) => Array.from(Array(size));
