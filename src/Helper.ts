@@ -4,11 +4,11 @@ export const generateRandomInt = (min = 1, max = 10): number =>
 export const generateRandomString = (size: number = 10): string => {
   const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
   return createArrayWithPassedSize(size)
-    .map((_) => chars.charAt(Math.floor(Math.random() * chars.length)))
+    .map((_) => chars.charAt(Math.floor(random() * chars.length)))
     .join("");
 };
 
-export const generateRandomBool = (): boolean => Math.random() < 0.5;
+export const generateRandomBool = (): boolean => random() < 0.5;
 
 export const toRandomCase = (string: string): string =>
   string.split("").map(toRandomChar).join("");
@@ -24,9 +24,11 @@ export const generateRandomList = <Type>(
 ): Type[] => createArrayWithPassedSize(size).map(generator);
 
 const toRandomChar = (char: string) =>
-  Math.round(Math.random()) ? char.toUpperCase() : char.toLocaleLowerCase();
+  Math.round(random()) ? char.toUpperCase() : char.toLocaleLowerCase();
 
 const createArrayWithPassedSize = (size: number) => Array.from(Array(size));
+
+const random = Math.random;
 
 declare global {
   interface String {
